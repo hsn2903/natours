@@ -10,6 +10,8 @@ const app = express();
 // body-parsing
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
+// serving static files
+app.use(express.static("public"));
 
 // 3rd party middlewares
 app.use(morgan("dev"));
@@ -18,5 +20,5 @@ app.use(morgan("dev"));
 app.use("/api/v1/tours", tourRouter);
 app.use("/api/v1/users", userRouter);
 
-// Lstenning server
+// Listenning server
 module.exports = app;
